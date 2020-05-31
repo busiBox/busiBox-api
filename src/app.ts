@@ -34,7 +34,7 @@ class App {
     fs.readdirSync(__dirname + '/routes')
       .map(file => {
         const routes = require(`./routes/${file}`);
-        if (file === 'index.ts') {
+        if (file.includes("index")) {
           this.express.use('/', routes)
         } else {
           this.express.use(`/${file.substring(0, file.indexOf('.'))}`, routes)

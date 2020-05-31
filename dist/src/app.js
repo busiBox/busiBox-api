@@ -32,7 +32,7 @@ var App = /** @class */ (function () {
         fs_1.default.readdirSync(__dirname + '/routes')
             .map(function (file) {
             var routes = require("./routes/" + file);
-            if (file === 'index.ts') {
+            if (file.includes("index")) {
                 _this.express.use('/', routes);
             }
             else {
