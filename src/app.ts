@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import fs from 'fs'
 
-import routes from "./routes";
+// import routes from "./routes";
 
 class App {
   public express: express.Application
@@ -24,12 +25,21 @@ class App {
 
   private database(): void {
     mongoose.connect(process.env.MONGODB_URL, {
-      useNewUrlParser: true
+      useNewUrlParser: true,
+      useUnifiedTopology: true
     })
   }
 
   private routes(): void {
-    this.express.use(routes)
+    fs.readdirSync(__dirname + '/routes')
+      .map(file => {
+        const routes = require(`./routes/${file}`);
+        if (file === 'index.ts') {
+          this.express.use('/', routes)
+        } else {
+          this.express.use(`/${file.substring(0, file.indexOf('.'))}`, routes)
+        }
+      })
   }
 
   private dotenv(): void {
