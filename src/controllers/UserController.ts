@@ -66,8 +66,6 @@ class UserController {
       return res.status(400).json(error)
     }
   }
-
-
 }
 
 export default new UserController()

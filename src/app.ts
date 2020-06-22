@@ -4,8 +4,6 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import fs from 'fs'
 
-// import routes from "./routes";
-
 class App {
   public express: express.Application
 
@@ -48,3 +46,12 @@ class App {
 }
 
 export default new App().express
+
+
+
+
+
+
+
+
+
