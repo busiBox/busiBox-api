@@ -2,7 +2,7 @@
   "name": "busibox",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/gbatistuti/busiBox.git",
+  "repository": "https://github.com/busiBox/busiBox-api",
   "author": "Gustavo Batistuti <gustavo.batistuti@bandtec.com.br>",
   "license": "MIT",
   "scripts": {
